@@ -56,6 +56,13 @@ function hasAccents(value: string) {
     return /[^\u0000-\u007f]/.test(value);
 }
 
+function looksLikePaths(value: string) {
+    const lines = value.trim().split(/\r?\n/).filter(Boolean);
+    if (lines.length < 2) return false;
+    const pathish = lines.filter((line) => /[\\/]/.test(line) && !line.startsWith("http"));
+    return pathish.length >= Math.max(2, Math.floor(lines.length / 2));
+}
+
 export function detectSuggestions(value: string, currentToolId?: string): Suggestion[] {
     const text = value || "";
     if (text.trim().length < 4) return [];
@@ -150,6 +157,15 @@ export function detectSuggestions(value: string, currentToolId?: string): Sugges
             label: toolMap.get("accent-remover")?.name || "Accent Remover",
             reason: "Has accents/diacritics",
             confidence: 0.7,
+        });
+    }
+
+    if (looksLikePaths(text)) {
+        suggestions.push({
+            id: "ascii-tree-generator",
+            label: toolMap.get("ascii-tree-generator")?.name || "ASCII Tree Generator",
+            reason: "Looks like file paths",
+            confidence: 0.8,
         });
     }
 

@@ -81,10 +81,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
               <div>
                 <h3>Available Tools</h3>
-                <p>This POC includes 6 text processing tools:</p>
+                <p>This starter includes 30+ production tools:</p>
                 <ul>
-                  <li><strong>Text Cleaning:</strong> Line Break Remover, Sort & Deduplicate, Accent Remover</li>
-                  <li><strong>Developer Tools:</strong> JSON Formatter, Base64 Encode/Decode, URL Encode/Decode</li>
+                  <li><strong>Text Cleaning:</strong> Line Break Remover, Sort & Deduplicate, Accent Remover, Email Extractor</li>
+                  <li><strong>Developer Tools:</strong> JSON Formatter, SQL Formatter, Regex Tester, ASCII Tree Generator</li>
+                  <li><strong>Numbers:</strong> Phone Formatter, SMS Length, Unix Timestamp</li>
                 </ul>
               </div>
 

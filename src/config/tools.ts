@@ -247,6 +247,14 @@ export const tools: Tool[] = [
         placeholder: "Paste text to count tokens...",
     },
     {
+        id: "ascii-tree-generator",
+        name: "ASCII Tree Generator",
+        category: "Developer Tools",
+        apiStep: "ascii-tree-generator",
+        description: "Generate folder trees from file paths",
+        placeholder: "src/app/layout.tsx\nsrc/components/Nav.tsx\nREADME.md",
+    },
+    {
         id: "subnet-calculator",
         name: "Subnet Calculator",
         category: "Developer Tools",
